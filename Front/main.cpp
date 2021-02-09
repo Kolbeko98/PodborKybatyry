@@ -12,6 +12,7 @@
 #include <string>
 #include <cmath>
 #include <limits>
+#include <locale.h>
 
 std::vector<std::string> PL_15_20 = {"16", "18", "20", "22", "24"};
 //std::vector<std::string> PL_21_25 = {"21", "22", "23", "24", "25"};
@@ -171,6 +172,8 @@ if (input > empty.allSum + gfx){
 }
 
 int main(int argc, const char * argv[]) {
+
+	setlocale(LC_NUMERIC, "C");
     
     // base_26_1624 = read(txt_26_1624);
     // base_26_2634 = read(txt_26_2634);

@@ -17,8 +17,8 @@
 
 
 
-std::string nameSortiment = "6.0_26-34_2cm.txt";
-float cubage[5] = {0.390, 0.450, 0.520, 0.590, 0.660};
+std::string nameSortiment = "5.5_26-34_2cm.txt";
+float cubage[5] = {0.350, 0.410, 0.470, 0.530, 0.600};
 
 // std::string nameSortiment = "6.0_16-24_2cm.txt";
 // float cubage[5] = {0.155, 0.194, 0.230, 0.280, 0.330};
@@ -48,6 +48,9 @@ int voidNuber = 0;
 int main(int argc, const char * argv[]) {
     
     // Generation
+    system("clear");
+    std::cout << "Create file " << nameSortiment << ", Please waite...\n\n";
+    std::cout << "Step 1 of 4. Generation\n";
     std::ofstream write;
     write.open(nameSortiment, std::ofstream::trunc);
     
@@ -66,7 +69,7 @@ int main(int argc, const char * argv[]) {
     
     // Read
     system("clear");
-    std::cout << "Read...\n";
+    std::cout << "Step 2 of 4. Read\n";
     element temp;
     std::ifstream  read;
     read.open(nameSortiment);
@@ -79,7 +82,7 @@ int main(int argc, const char * argv[]) {
     
     // Sorting
     system("clear");
-    std::cout << "Sorting...\n";
+    std::cout << "Step 3 of 4. Sorting\n";
     std::sort(Base.begin(), Base.end(), [](const element& a, const element& b) -> bool {
         return a.allSum < b.allSum;
     });
@@ -87,7 +90,7 @@ int main(int argc, const char * argv[]) {
     
     // Write
     system("clear");
-    std::cout << "\nWrite...\n";
+    std::cout << "Step 4 of 4. Write\n";
     remove("3.2_16-24.txt");
     std::ofstream writeTwo;
     writeTwo.open(nameSortiment, std::ofstream::trunc);
@@ -96,8 +99,7 @@ int main(int argc, const char * argv[]) {
     for (int i = 0; i < Base.size(); i++) {
         
         if (t == Base[i].allSum) {
-        	system("clear");
-            std::cout << "Delete.." << "\n"; // << t << "\n";
+            // std::cout << "Delete.." << "\n" << t << "\n";
         }else {
             writeTwo << Base[i].firstNum << " " << Base[i].secondNum << " " <<  Base[i].thirdNum << " " <<  Base[i].fourNum << " " <<  Base[i].fiftNum << " " << Base[i].firstCub << " " << Base[i].secondCub << " " << Base[i].thirdCub << " " << Base[i].fourCub << " "<< Base[i].fifthCub << " " << Base[i].allSum << "\n";
             std::cout << Base[i].allSum << "\n";
